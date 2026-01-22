@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>AquaGuard Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>💧 AquaGuard – Monitoring des fuites</h1>
+
+        <div class="stats">
+        <div class="card">
+            <h3>Débit moyen entrée</h3>
+            <p id="avgUp">0</p>
+        </div>
+        <div class="card">
+            <h3>Débit moyen sortie</h3>
+            <p id="avgDown">0</p>
+        </div>
+        <div class="card">
+            <h3>Fuites détectées</h3>
+            <p id="leakCount">0</p>
+        </div>
+    </div>
+
+    <div id="alertBox" class="alert hidden">
+    ⚠️ Fuite détectée sur le réseau !
+    </div>
+
+    <button id="exportBtn">Exporter CSV</button>
+
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Débit enterré</th>
+                <th>Débit sortie</th>
+                <th>Fuite</th>
+            </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+    </table>
+    <canvas id="flowChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
